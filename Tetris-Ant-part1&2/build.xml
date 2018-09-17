@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<project name="Compilation de Tetris" default="dist" >
+	<property name="version" value="1.2" />
+	
+
+<target name="clean" >
+<echo message="Suppression des fichiers issus de la compilation "/>
+<delete dir="bin" />
+</target>
+<target name="compile">
+<mkdir dir="bin"/>
+<javac srcdir="src" destdir="bin"
+classpath="lib/commons-lang3-3.5.jar"
+executable="${javac.version}" />
+
+
+</target>
+<target name="dist" depends="clean,compile">
+		
+		<manifest file="${basedir}/bin/manifest.mf">
+		<attribute name="Built-By" value="oumaima"></attribute>
+		<attribute name="Implementation-Version" value="1"></attribute>
+		<attribute name="Main-Class" value="fr.ubo.tetris.Tetris"></attribute>
+		<attribute name="Class-Path" value="${basedir}/lib/commons-lang3-3.5.jar"></attribute>
+        </manifest>	
+		<jar jarfile="bin/Tetris.jar" basedir="bin" manifest="${basedir}/bin/manifest.mf"></jar>
+	
+</target>
+
+	
+
+</project>
