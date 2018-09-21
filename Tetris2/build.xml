@@ -3,13 +3,23 @@
 <project name="Compilation de Tetris" default="dist" xmlns:ivy="antlib:org.apache.ivy.ant" >
 	<property name="version" value="1.2" />
 	
-
+	<property name="src.dir" value="src"></property>
+	<property name="obj.dir" value="bin"></property>
+	<property name="libs.dir" value="libs"></property>
+	<property name="test.result.dir" value="test-results"></property>
+	<property name="main-class" value="fr.ubo.tertris.Tertis"></property>
+	<property name="test.reports" value="test-reports"></property>
+	<property name="compile.classpath" value="${basedir}/lib/commons-lang3-3.5.jar"></property>
+	<property name="doc.dir" value="${basedir}/javadoc"/>
 <target name="clean" >
 		<echo message="Suppression des fichiers issus de la compilation "/>
 		<delete dir="bin" />
+	 	<delete dir="lib" />
+		<mkdir dir="lib"/>
+	
 </target>
 	
-<target name="compile">
+<target name="compile" depends="retrieve">
 		<mkdir dir="bin"/>
 		<javac srcdir="src" destdir="bin"
 		classpath="lib/commons-lang3-3.5.jar"
@@ -32,6 +42,47 @@
 		<ivy:resolve />
 		<ivy:retrieve sync="true" type="jar" />
 </target>
+<target name="compile-test">
+		<javac srcdir="test" destdir="bin" executable="${javac.version}" >
+		<classpath>
+		<pathelement location ="${basedir}/lib/commons-lang3-3.5.jar" />
+		<pathelement location ="${basedir}/lib/junit-4.12.jar" />
+		<pathelement location ="${basedir}/lib/hamcrest-core-1.3.jar" />
+		</classpath></javac>
+</target>
+	
+	
+	<target name="test" depends="compile-test">
+		     <mkdir dir="${obj.dir}/${test.result.dir}" />
+			 <junit fork="yes" printsummary="withOutAndErr" haltonfailure="no">
+			 	
+			 	<classpath >
+			 		<pathelement location="${basedir}/lib/commons-lang3-3.5.jar"/> 
+			 	    <pathelement location="${basedir}/lib/junit-4.12.jar"/> 
+			 	     <pathelement location="${basedir}/lib/hamcrest-core-1.3.jar"/> 
+			 	     <pathelement location="${obj.dir}"/> 
+			 	</classpath>
+
+			 	<classpath location="fr.ubo.tetris.Tetris" />
+			 			
+			 	 <formatter type="plain"/>
+			 	 <formatter type="xml"/>
+		         <test name="fr.isen.tetris.TestShape" todir="${obj.dir}/${test.result.dir}" haltonfailure="yes" />
+		      </junit>
+		</target>
+	
+	
+	<target name="test-reports" depends="test">
+		 <delete dir="${obj.dir}/${test.reports}"></delete> 
+		 <mkdir dir="${obj.dir}/${test.reports}"></mkdir>  
+		  <junitreport todir="${obj.dir}/${test.reports}">
+		         <fileset dir="${obj.dir}/${test.reports}">
+		             <include name="*Test-*.html"/>
+		         </fileset>
+		       <report format="frames" todir="${obj.dir}/${test.reports}"/>
+		  </junitreport>   
+	</target>
+	
 	
 	
 

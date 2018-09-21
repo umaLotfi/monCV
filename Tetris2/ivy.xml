@@ -4,5 +4,12 @@ xsi:noNamespaceSchemaLocation="https://ant.apache.org/ivy/schemas/ivy.xsd">
 	<info organisation="fr.ubo" module="ivy-exemple" status="integration"/>
 	<dependencies>
 	<dependency org="org.apache.commons" name="commons-lang3" rev="3.5" /> 
+	<!-- https://mvnrepository.com/artifact/junit/junit -->
+
+	<dependency org="junit" name="junit" rev="4.12"/>
+	
 	</dependencies>
+	
 </ivy-module>
+
+
