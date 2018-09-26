@@ -1,0 +1,32 @@
+@media only screen and (max-width: 740px) {
+
+
+#wrapper { 
+/*background: white;*/
+width:100%;
+ }
+}
+
+@media only screen and (max-width: 570px) {
+
+
+#wrapper { 
+	/*background: ;*/
+	
+	width:100%; }
+
+}
+
+@media only screen (max-width: 480px) {	
+
+	#wrapper {
+
+	  display: initial;
+	
+
+	  
+	  width:100%;
+	  columns: 1
+
+	}
+}

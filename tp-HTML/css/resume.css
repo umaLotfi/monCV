@@ -9,7 +9,7 @@ html
 }
 body 
 {
-	background-color: #777
+	background-color: #fefbd8;
 }
 #wrapper 
 {
@@ -28,11 +28,12 @@ margin-left: auto;
 margin-right: auto;
 }
 
-#img1 
+img 
 {	
 
 	float : right;
-	margin-right :700px;
+	position: relative;
+	margin-right :100px;
 	border-width :1px;
 	border-color: #ccc;
 	border-radius: 3px;
