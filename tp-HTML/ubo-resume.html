@@ -33,7 +33,7 @@
 						<span itemprop="addressLocality">Brest</span>
 						<span itemprop="postalCode">29200</span>
 						</div>
-						<p>date de naissance : 04/081/1995</p>
+						<p>date de naissance : 04/08/1995</p>
 						<p>@ : <a href="mailto:jane-doe@xyz.edu" itemprop="email">lotfixoumaima@gmail.com</a></p>
 						<p>Marocaine</p><br><br>
 						
@@ -45,12 +45,13 @@
 						
 						<article> 
 							<h2>Expériences professionnelles</h2>
-							<dl>
-						 		<dt>Avril-Mai 2017 : Stage PFE - FSTM</dt>
-							 		<dd>Sujet : l'authentification vocale pour la sécurisation de l'accès à la banque en ligne sous android </dd>
-						 		<dt>Mai 2016 : Stage pratique - OCP :Centre Informatique </dt>
-							 		<dd>Sujet: Etudes des serveurs/applications exploitées au niveau du réseau de l'OCP </dd>
+							<dl id="exp">
+						 		<div><button class="button" id="detButton">+</button><dt>Avril-Mai 2017 : Stage PFE - FSTM</dt></div>
+						 		<dd  id="exp1" hidden="true" >Sujet : l'authentification vocale pour la sécurisation de l'accès à la banque en ligne sous android </dd><br>
+						 		<div><button class="button" id="detButton1">+</button><dt>Mai 2016 : Stage pratique - OCP :Centre Informatique </dt></div>
+						 		<dd  id="exp2" hidden="true">Sujet: Etudes des serveurs/applications exploitées au niveau du réseau de l'OCP </dd>
 							 </dl>
+							
 							
 						</article>
 					</section>
@@ -84,6 +85,26 @@
 				<footer><a href="https://github.com/umaLotfi/monCV" itemprop="url" class="fa fa-github"> Github</a></footer>
 					
 </div>
+<script>
+
+		document.getElementById("detButton").addEventListener("click", function() 
+		{
+  		document.getElementById("exp1").hidden = false;
+  		document.getElementById("exp2").hidden = true;
+		}, false);
+
+		document.getElementById("detButton1").addEventListener("click", function() 
+		{
+  		document.getElementById("exp2").hidden = false;
+  		document.getElementById("exp1").hidden = true;
+		}, false);
+
+        var parentDOM = document.getElementById("exp");
+        
+        var exp1=parentDOM.getElementsByClassName("exp1");
+
+  
+    </script>
 		</body>
 </html>
 		

@@ -50,6 +50,12 @@ h2
 font-family: merriweather, serif;
 }
 
+.button
+{
+	float: left;
+
+}
+
 .fa {
 	  padding: 30px;
 	  font-size: 40px;
