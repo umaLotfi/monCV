@@ -39,7 +39,17 @@
 						
 			</header>
 
-			
+					<section>
+						<h2>Formations</h2>
+						<dl>
+							<dt> 2018 -2019 : (En cours)</dt>
+							<dd> Master 2 Développement lOgiciel des Systèmes d'Information</dd>
+							<dt> 2017-2018 :<dt>
+							<dd> Master Sciences et Techniques filière Systèmes Informatiques et Mobiles</dd>
+							<dt> 2016 - 2017 : </dt>
+							<dd> Licence Sciences et Techniques en Inormatique Réseau et Multimédia </dd>
+						</dl>
+					</section>
 			
 					<section>
 						
@@ -57,51 +67,116 @@
 					</section>
 					<section>						
 						<h2>Compétences</h2>
+
+					
+      		
+
+					
 						<dl>
-						 <dt>Base de données :</dt>
+						<button class="button" onclick="show('compBD')">+</button> 
+							<dt>Base de données :</dt>
+							<div id="compBD" class="myclass" style="display: none;">
+							
+							
 							 <dd>MySql</dd>
 							 <dd>SQL Server</dd>
 							 <dd>SQLite</dd>
-							 <dd>Oracle</dd>
-						 <dt>Langages :</dt>
+							 <dd>Oracle</dd><br>
+						</div>
+						<br>
+						
+						<button class="button" onclick="show('compLan')">+</button>
+							 <dt >Langages :</dt>
+							 <div id="compLan" class="myclass" style="display: none;">
+							 
 							 <dd>C</dd>
 							 <dd>java(JSP,Android)</dd>
 							 <dd>Python</dd>
 							 <dd>MATLAB</dd>
-							 <dd>SQL</dd>	
-						 <dt id="dd1">Conception :</dt>
+							 <dd>SQL</dd><br>
+						 </div>
+						 <br>
+						<button class="button" onclick="show('compCon')" >+</button>
+							 <dt >Conception :</dt>
+							 <div id="compCon" class="myclass" style="display: none;">
+							
 							 <dd>Merise</dd>
-							 <dd>UML</dd>
-							 	
-						 <dt id="dd1">Technologie :</dt>
-							 <dd>Virtualisation VMware vSphere</dd>	
-						 <dt>Autre :</dt>
+							 <dd>UML</dd><br> 
+						 </div>
+							 <br>	
+						<button class="button" onclick="show('comptec')">+</button>
+						  	 <dt >Technologie :</dt>
+							 <div id="comptec" class="myclass" style="display: none;">
+							 
+							 <dd>Virtualisation VMware vSphere</dd>	<br>
+							</div>
+						<br>
+						 <button class="button" onclick="show('compau')">+</button>
+							  <dt >Autre :</dt>
+						 <div id="compau"  class="myclass" style="display: none;">
+						 	
 							 <dd>Machine Learning</dd>
-							 <dd>Business Intelligence</dd>
+							 <dd>Business Intelligence</dd><br> 
+						</div>
+							<br>
 							 				
 						</dl>
+					
 					</section>
 			<br><br>
 				<footer><a href="https://github.com/umaLotfi/monCV" itemprop="url" class="fa fa-github"> Github</a></footer>
 					
 </div>
 <script>
+		function show(id)
+			{  
+				var elements;
+			  elements = document.getElementsByClassName("myclass");
+			  if(document.getElementById(id).style.display =="none")
+			  {
+			    for (var i = 0; i < elements.length; i++) {
+			      elements[i].style.display = "none" ;
+			    }
+			    document.getElementById(id).style.display="block";
+			  }
+			  else
+			  {
+			    for (var i = 0; i < elements.length; i++) {
+			      elements[i].style.display = "none" ;
+			    }
+			    
+			  }
+			  return true;
+			}
+
+</script>
+
+<script>
 
 		document.getElementById("detButton").addEventListener("click", function() 
 		{
-  		document.getElementById("exp1").hidden = false;
-  		document.getElementById("exp2").hidden = true;
+	  		document.getElementById("exp1").hidden = false;
+	  		document.getElementById("exp2").hidden = true;
 		}, false);
 
 		document.getElementById("detButton1").addEventListener("click", function() 
 		{
-  		document.getElementById("exp2").hidden = false;
-  		document.getElementById("exp1").hidden = true;
+	  		document.getElementById("exp2").hidden = false;
+	  		document.getElementById("exp1").hidden = true;
 		}, false);
+</script>
 
-        var parentDOM = document.getElementById("exp");
-        
-        var exp1=parentDOM.getElementsByClassName("exp1");
+<script >
+       var i=1;
+ 
+function createTextarea(idConteneur)
+{
+    var zonetxt = document.createElement("textarea");
+    zonetxt.value = "Je suis le textarea N°" + i;
+    i++;
+ 
+    document.getElementById(idConteneur).appendChild(zonetxt);
+}
 
   
     </script>

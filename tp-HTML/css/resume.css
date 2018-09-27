@@ -53,7 +53,7 @@ font-family: merriweather, serif;
 .button
 {
 	float: left;
-
+	position: relative;
 }
 
 .fa {
